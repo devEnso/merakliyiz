@@ -5,7 +5,7 @@ export class Login extends Component {
         return (
             <div>
                 <h1>
-                    Hey
+                    Hey im login
                 </h1>
             </div>
         )

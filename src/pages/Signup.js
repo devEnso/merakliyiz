@@ -5,7 +5,7 @@ export class Signup extends Component {
         return (
             <div>
                 <h1>
-                    hey
+                    hey im signup
                 </h1>
             </div>
         )
