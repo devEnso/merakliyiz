@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+
 import Logo from '../img/logo.png';
 import ForHome from '../components/ForHome';
+import MerakliFooter from '../components/MerakliFooter';
 
 //grommet işlevleri
 import {
@@ -9,9 +11,9 @@ import {
   Grommet,
   Stack,
   Image,
-  Button
+  Button,
+  Heading
 } from "grommet";
-
 import { Next } from "grommet-icons";
 
 
@@ -28,9 +30,20 @@ const Body = styled.section`
   background-color: gainsboro;
 `;
 
+const Title1 = styled.section`
+  text-align: center;
+`;
+
+const Title2 = styled.section`
+  text-align: center;
+  padding-left: 33%;
+`;
 
 class Home extends Component {
   render() {
+    const sizes = [
+      "xlarge",
+    ];
     return (
       <Grommet full>
         <Body>
@@ -63,9 +76,20 @@ class Home extends Component {
               round
               gap="small"
             >
-              <ForHome/>
+              <ForHome />
             </Box>
           </Box>
+          <Title1>
+            {sizes.map(size => (
+              <Box key={size} margin="small">
+                <Heading size={size}>streamline the way you develop apps</Heading>
+              </Box>
+            ))}
+          </Title1>
+          <Title2>
+            <Heading level={3}>streamline the way you develop apps</Heading>
+          </Title2>
+          <MerakliFooter />
         </Body>
       </Grommet>
     )
