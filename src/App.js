@@ -15,9 +15,9 @@ import Dashboard from './pages/Dashboard';
 function App() {
   return (
     <Router>
-      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Navbar />
         <div className="container">
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />

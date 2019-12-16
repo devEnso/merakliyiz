@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
-import { Grommet, Box, Text } from "grommet";
-import { grommet } from "grommet/themes";
+//grommet işlevleri
+import { Box, Grommet, Stack, Image } from "grommet";
 
-export class Home extends Component {
-    render() {
-        return (
-            <Grommet theme={grommet}>
-            <Box pad="small" gap="small">
-              <Box
-                width="large"
-                height="large"
-                round="small"
-                align="center"
-                justify="center"
-                background="brand" 
-              >
-                <Text>Hey</Text>
-              </Box>
+const Wrapper = styled.section`
+  padding-left: 40%;
+`;
+
+const Body = styled.section`
+  padding: 5%;
+`;
+
+class Home extends Component {
+  render() {
+    return (
+      <Grommet full>
+        <Body>
+          <Stack fill>
+            <Wrapper>
+              <Image fit="contain" src="https://i.hizliresim.com/YdoA8Z.png" />
+            </Wrapper>
+            <Box background="dark" fill>
+              Test
             </Box>
-          </Grommet>
-        )
-    }
+          </Stack>
+        </Body>
+      </Grommet>
+    )
+  }
 }
 
 export default Home
