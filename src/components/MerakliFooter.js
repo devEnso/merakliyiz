@@ -1,57 +1,76 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import Logo from '../img/logo.png';
 
 import { Anchor, Box, Footer, grommet, Grommet, Main, Text } from "grommet";
 import {
-    Grommet as GrommetIcon,
     FacebookOption,
     Instagram,
     Twitter
 } from "grommet-icons";
-
-const Social = styled.section`
-  padding-right: 50%;
-`;
 
 
 class MerakliFooter extends Component {
     render() {
         return (
             <Grommet theme={grommet}>
-                <Main background="light-4" elevation="large" pad="large" border>
-                    <Text margin="small" size="xsmall" textAlign="center">
+                <Main background="light-4" elevation="large" pad="large">
+                    <Text margin="small" size="medium" textAlign="center">
                         <Anchor
                             a11yTitle="Share feedback on Github"
                             href="https://www.instagram.com/"
                             icon={<Instagram color="brand" />}
+                            label="Instagram'dan takip edebilirsiniz!"
+                            margin="large"
                         />
                         <Anchor
                             a11yTitle="Chat with us on Slack"
                             href="https://www.facebook.com/"
                             icon={<FacebookOption color="brand" />}
+                            label="Facebook'dan takip edebilirsiniz"
+                            margin="large"
                         />
                         <Anchor
                             a11yTitle="Follow us on Twitter"
                             href="https://twitter.com/"
                             icon={<Twitter color="brand" />}
+                            label="Twitter'dan takip edebilirsiniz"
+                            margin="large"
                         />
                     </Text>
                     <Box flex />
                 </Main>
-                <Footer background="dark-1" pad="large">
 
-                </Footer>
-                <Footer
-                    background="dark-2"
-                    pad={{ horizontal: "large", vertical: "small" }}
-                >
-                    <Box direction="row" gap="small">
-                        <GrommetIcon color="brand" />
-                        <Text alignSelf="center">grommet.io</Text>
+                <Footer background="dark-3" pad="large">
+                    <Box direction="row-responsive" gap="xsmall">
+                        <Box align="center" gap="small">
+                            <img width="100px" src={Logo} alt="merakliyiz" />
+                            <Text alignSelf="center" color="brand" weight="bold">
+                                merakliyiz.com
+                            </Text>
+                        </Box>
                     </Box>
-                    <Text textAlign="center" size="small">
-                        © 2019 Copyright
-                 </Text>
+                    <Box direction="column" border={{ color: 'brand', size: 'xxsmall' }} pad='xxsmall'>
+                        <Text>Merakliyiz</Text>
+                        <br/>
+                        <Anchor label="anasayfa" href="/"  />
+                        <Anchor label="giriş" href="/login"  />
+                        <Anchor label="uye ol" href="/signup"  />
+                    </Box>
+                    <Box direction="column" border={{ color: 'brand', size: 'xxsmall' }} pad='xxsmall'>
+                        <Text>Legal</Text>
+                        <br/>
+                        <Anchor label="şartlar" />
+                        <Anchor label="gizlilik" />
+                        <Anchor label="güvenlik" />
+                    </Box>
+                    <Box direction="column" border={{ color: 'brand', size: 'xxsmall' }} pad='xxsmall'>
+                        <Text>Biz</Text>
+                        <br/>
+                        <Anchor label="hakkimizda" />
+                        <Anchor label="medya" />
+                        <Anchor label="aramıza katıl!" />
+                    </Box>
                 </Footer>
             </Grommet>
         )
