@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import styled from 'styled-components';
+import React, { Component } from 'react';
 import Logo from '../img/logo.png';
 
 import { Anchor, Box, Footer, grommet, Grommet, Main, Text } from "grommet";

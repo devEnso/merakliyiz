@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //utils
 // import AuthRoute from './utils/AuthRoute';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 
 //sayfalar
 import Home from './pages/Home';
@@ -17,7 +17,6 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Navbar />
         <div className="container">
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />

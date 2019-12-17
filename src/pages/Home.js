@@ -12,7 +12,8 @@ import {
   Stack,
   Image,
   Button,
-  Heading
+  Heading,
+  Anchor
 } from "grommet";
 import { Next } from "grommet-icons";
 
@@ -42,7 +43,7 @@ const Title2 = styled.section`
 class Home extends Component {
   render() {
     const sizes = [
-      "xlarge",
+      "large",
     ];
     return (
       <Grommet full>
@@ -82,12 +83,12 @@ class Home extends Component {
           <Title1>
             {sizes.map(size => (
               <Box key={size} margin="small">
-                <Heading size={size}>streamline the way you develop apps</Heading>
+                <Heading size={size}>merak ettiğin, aklında olanları sor gitsin!</Heading>
               </Box>
             ))}
           </Title1>
           <Title2>
-            <Heading level={3}>streamline the way you develop apps</Heading>
+            <Heading level={3}>iki türlü seçim yapabilirsin, soru sormak isteyen. cevaplamak isteyen, soru soran kişiler ayrıca cevaplayabilir. <Anchor label="detaylı ayrıntı için tıkla!" href="/hakkimizda" /> veyahut <Anchor label="biliyorsan hemen üye ol" href="/signup" /></Heading>
           </Title2>
           <MerakliFooter />
         </Body>
