@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../img/logo.png';
 
-import { grommet, Box, FormField, Form, Text, Heading, Button, Grommet, Image } from "grommet";
+import { grommet, Box, FormField, Form, Text, Heading, Button, Grommet, Image, Paragraph, Anchor } from "grommet";
 
 const FormFieldLabel = props => {
     const { required, label, ...rest } = props;
@@ -36,13 +36,19 @@ class Login extends Component {
                     </Box>
                     <Heading color="accent-4">Giriş Yap</Heading>
                     <Form>
-                        <FormFieldLabel name="firstName" label="Adınız" required />
-                        <FormFieldLabel name="password" label="Şifre" required />
-                        <FormFieldLabel name="email" label="Email" />
-                        <Button type="submit" label="Submit" primary />
+                        <FormFieldLabel name="username" label="Kullanıcı Adı" required/>
+                        <FormFieldLabel
+                            label="Şifre" 
+                            type={"password"}
+                            required
+                        />
+                        <Button type="submit" label="Giriş Yap" primary />
                         <Text margin={{ left: "small" }} size="small" color="status-critical">
                             * Isteniliyor
                         </Text>
+                        <Paragraph>
+                            Üye değil misiniz? <Anchor label="Hemen üye olun!" href="/signup" /> 
+                        </Paragraph>
                     </Form>
                 </Box>
             </Grommet>
