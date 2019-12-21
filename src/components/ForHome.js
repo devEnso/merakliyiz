@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 const AllHepsi = styled.section`
 #root {
@@ -23,6 +24,10 @@ const AllHepsi = styled.section`
     transition: box-shadow 0.5s;
     will-change: transform;
     border: 15px solid white;
+    ${media.lessThan("medium")`
+    width: 23ch;
+    height: 23ch;
+  `}
   }
   
   .card:hover {

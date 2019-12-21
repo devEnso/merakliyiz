@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 import Logo from '../img/logo.png';
 import ForHome from '../components/ForHome';
@@ -29,6 +30,11 @@ const Wrapper = styled.section`
 const Wrapper2 = styled.section`
   padding-left: 50%;
   margin-top: -6%;
+  ${media.lessThan("medium")`
+  padding-left: 50%;
+  margin-top: -20%;
+  font-siz: 13px
+`}
 `;
 
 const Body = styled.section`
@@ -42,13 +48,13 @@ const Title1 = styled.section`
 const Title2 = styled.section`
   text-align: center;
   padding-left: 33%;
+  ${media.lessThan("medium")`
+  padding-left: 0px;
+`}
 `;
 
 class Home extends Component {
   render() {
-    const sizes = [
-      "large",
-    ];
     return (
       <Grommet full>
         <Body>
@@ -87,11 +93,9 @@ class Home extends Component {
           </Box>
           <Cont>
             <Title1>
-              {sizes.map(size => (
-                <Box key={size} margin="small">
-                  <Heading size={size}>merak ettiğin, aklında olanları sor gitsin!</Heading>
+                <Box margin="small">
+                  <Heading size="large">merak ettiğin, aklında olanları sor gitsin!</Heading>
                 </Box>
-              ))}
             </Title1>
             <Title2>
               <Heading level={3}>iki türlü seçim yapabilirsin, soru sormak isteyen. cevaplamak isteyen, soru soran kişiler ayrıca cevaplayabilir. <Anchor label="detaylı ayrıntı için tıkla!" href="/hakkimizda" /> veyahut <Anchor label="biliyorsan hemen üye ol" href="/signup" /></Heading>
