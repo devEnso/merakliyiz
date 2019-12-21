@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import Logo from '../img/logo.png';
+import styled from 'styled-components';
+import MerakliFooter from '../components/MerakliFooter';
 
 import { grommet, Box, FormField, Form, Text, Heading, Button, Grommet, Image, Paragraph, Anchor } from "grommet";
+
+
+const Cont = styled.section`
+    margin: 8%;
+`;
+
 
 const FormFieldLabel = props => {
     const { required, label, ...rest } = props;
@@ -27,6 +35,7 @@ class Signup extends Component {
     render() {
         return (
             <Grommet theme={grommet}>
+                <Cont>
                 <Box align="center" pad="large">
                     <Box height="small" width="small">
                         <Image
@@ -58,6 +67,8 @@ class Signup extends Component {
 
                     </Form>
                 </Box>
+                </Cont>
+                <MerakliFooter/>
             </Grommet>
         )
     }

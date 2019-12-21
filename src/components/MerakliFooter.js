@@ -59,16 +59,16 @@ class MerakliFooter extends Component {
                     <Box direction="column" border={{ color: 'brand', size: 'xxsmall' }} pad='xxsmall'>
                         <Text>Legal</Text>
                         <br/>
-                        <Anchor label="şartlar" />
-                        <Anchor label="gizlilik" />
-                        <Anchor label="güvenlik" />
+                        <Anchor label="şartlar" href="/sartlar" />
+                        <Anchor label="gizlilik" href="gizlilik" />
+                        <Anchor label="güvenlik" href="guvenlik" />
                     </Box>
                     <Box direction="column" border={{ color: 'brand', size: 'xxsmall' }} pad='xxsmall'>
                         <Text>Biz</Text>
                         <br/>
-                        <Anchor label="hakkimizda" />
-                        <Anchor label="medya" />
-                        <Anchor label="aramıza katıl!" />
+                        <Anchor label="hakkimizda" href="hakkimizda" />
+                        <Anchor label="medya" href="medya" />
+                        <Anchor label="aramıza katıl!" href="job" />
                     </Box>
                 </Footer>
             </Grommet>

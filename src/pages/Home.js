@@ -17,6 +17,10 @@ import {
 } from "grommet";
 import { Next } from "grommet-icons";
 
+const Cont = styled.section`
+  padding: 10%;
+  padding-top: 0%;
+`;
 
 const Wrapper = styled.section`
   padding-right: 50%;
@@ -47,51 +51,54 @@ class Home extends Component {
     ];
     return (
       <Grommet full>
-        <Body>
-          <Stack fill>
-            {/* navbar */}
-            <Box
-              align="center"
-              pad="large"
-            >
-              <Wrapper>
-                <Image fit="contain" src={Logo} style={{ width: '40%' }} />
-              </Wrapper>
-              <Wrapper2>
-                <Button primary label="Hemen Başla!" icon={<Next />} />
-              </Wrapper2>
-            </Box>
-            {/* navbar end */}
-          </Stack>
-          <Box
-            direction="row-responsive"
-            justify="center"
-            align="center"
-            pad="xlarge"
-            gap="medium"
-          >
-            <Box
-              pad="large"
-              align="center"
-              background={{ color: "light-2", opacity: "strong" }}
-              round
-              gap="small"
-            >
-              <ForHome />
-            </Box>
-          </Box>
-          <Title1>
-            {sizes.map(size => (
-              <Box key={size} margin="small">
-                <Heading size={size}>merak ettiğin, aklında olanları sor gitsin!</Heading>
+          <Body>
+            <Stack fill>
+              {/* navbar */}
+              <Box
+                align="center"
+                pad="large"
+                gridArea="header"
+              >
+                <Wrapper>
+                  <Image fit="contain" src={Logo} style={{ width: '40%' }} />
+                </Wrapper>
+                <Wrapper2>
+                  <Button primary label="Hemen Başla!" href="/signup" icon={<Next />} />
+                </Wrapper2>
               </Box>
-            ))}
-          </Title1>
-          <Title2>
-            <Heading level={3}>iki türlü seçim yapabilirsin, soru sormak isteyen. cevaplamak isteyen, soru soran kişiler ayrıca cevaplayabilir. <Anchor label="detaylı ayrıntı için tıkla!" href="/hakkimizda" /> veyahut <Anchor label="biliyorsan hemen üye ol" href="/signup" /></Heading>
-          </Title2>
-          <MerakliFooter />
-        </Body>
+              {/* navbar end */}
+            </Stack>
+            <Box
+              direction="row-responsive"
+              justify="center"
+              align="center"
+              pad="xlarge"
+              gap="medium"
+            >
+              <Box
+                pad="large"
+                align="center"
+                background={{ color: "light-2", opacity: "strong" }}
+                round
+                gap="small"
+              >
+                <ForHome />
+              </Box>
+            </Box>
+            <Cont>
+              <Title1>
+                {sizes.map(size => (
+                  <Box key={size} margin="small">
+                    <Heading size={size}>merak ettiğin, aklında olanları sor gitsin!</Heading>
+                  </Box>
+                ))}
+              </Title1>
+              <Title2>
+                <Heading level={3}>iki türlü seçim yapabilirsin, soru sormak isteyen. cevaplamak isteyen, soru soran kişiler ayrıca cevaplayabilir. <Anchor label="detaylı ayrıntı için tıkla!" href="/hakkimizda" /> veyahut <Anchor label="biliyorsan hemen üye ol" href="/signup" /></Heading>
+              </Title2>
+            </Cont>
+            <MerakliFooter />
+          </Body>
       </Grommet>
     )
   }
