@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { useCallback } from 'react';
 import Logo from '../img/logo.png';
 import styled from 'styled-components';
 import MerakliFooter from '../components/MerakliFooter';
+import app from '../firebaseFolder/firebase';
+import { withRouter } from 'react-router-dom';
 
 import { grommet, Box, FormField, Form, Text, Heading, Button, Grommet, Image, Paragraph, Anchor } from "grommet";
+
 
 
 const Cont = styled.section`
@@ -31,11 +34,23 @@ const FormFieldLabel = props => {
     );
 };
 
-class Signup extends Component {
-    render() {
-        return (
-            <Grommet theme={grommet}>
-                <Cont>
+const SignUp = ({ history }) => {
+    const handleSignUp = useCallback(async event => {
+        event.preventDefault();
+        const { email, password } = event.target.elements;
+        try {
+            await app
+                .auth()
+                .createUserWithEmailAndPassword(email.value, password.value);
+            history.push("/");
+        } catch (error) {
+            alert(error);
+        }
+    }, [history]);
+
+    return (
+        <Grommet theme={grommet} onSubmit={handleSignUp}>
+            <Cont>
                 <Box align="center" pad="large">
                     <Box height="small" width="small">
                         <Image
@@ -45,15 +60,11 @@ class Signup extends Component {
                     </Box>
                     <Heading color="accent-4">Uye ol</Heading>
                     <Form>
-                        <FormFieldLabel name="username" label="Kullanıcı Adı" required />
+                        {/* <FormFieldLabel name="username" label="Kullanıcı Adı" required /> */}
                         <FormFieldLabel name="email" label="Email" required />
                         <FormFieldLabel
+                            name="password"
                             label="Şifre"
-                            type={"password"}
-                            required
-                        />
-                        <FormFieldLabel
-                            label="Şifre Tekrar"
                             type={"password"}
                             required
                         />
@@ -62,16 +73,17 @@ class Signup extends Component {
                             * Isteniliyor
                         </Text>
                         <Paragraph>
-                            Zaten üye misiniz? <Anchor label="Giriş yapın o halde" href="/login" /> 
+                            Zaten üye misiniz? <Anchor label="Giriş yapın o halde" href="/login" />
                         </Paragraph>
 
                     </Form>
                 </Box>
-                </Cont>
-                <MerakliFooter/>
-            </Grommet>
-        )
-    }
-}
+            </Cont>
+            <MerakliFooter />
+        </Grommet>
+    );
+};
 
-export default Signup
+export default withRouter(SignUp);
+
+

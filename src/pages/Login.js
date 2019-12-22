@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import app from "../firebaseFolder/firebase";
+import { AuthContext } from '../firebaseFolder/Auth';
 import Logo from '../img/logo.png';
 import MerakliFooter from '../components/MerakliFooter';
 import styled from 'styled-components';
@@ -29,12 +32,33 @@ const FormFieldLabel = props => {
     );
 };
 
-class Login extends Component {
-    render() {
-        return (
-            <Grommet theme={grommet}>
-                <Cont>
-                <Box  align="center" pad="large">
+const Login = ({ history }) => {
+    const handleLogin = useCallback(
+        async event => {
+            event.preventDefault();
+            const { email, password } = event.target.elements;
+            try {
+                await app
+                    .auth()
+                    .signInWithEmailAndPassword(email.value, password.value);
+                history.push("/");
+            } catch (error) {
+                alert(error);
+            }
+        },
+        [history]
+    );
+
+    const { currentUser } = useContext(AuthContext);
+
+    if (currentUser) {
+        return <Redirect to="/" />;
+    }
+
+    return (
+        <Grommet theme={grommet} onSubmit={handleLogin}>
+            <Cont>
+                <Box align="center" pad="large">
                     <Box height="small" width="small">
                         <Image
                             fit="contain"
@@ -43,26 +67,26 @@ class Login extends Component {
                     </Box>
                     <Heading color="accent-4">Giriş Yap</Heading>
                     <Form>
-                        <FormFieldLabel name="username" label="Kullanıcı Adı" required/>
+                        <FormFieldLabel name="email" label="Kullanıcı Adı" required />
                         <FormFieldLabel
-                            label="Şifre" 
+                            name="password" 
+                            label="Şifre"
                             type={"password"}
                             required
                         />
                         <Button type="submit" label="Giriş Yap" primary />
                         <Text margin={{ left: "small" }} size="small" color="status-critical">
                             * Isteniliyor
-                        </Text>
+                    </Text>
                         <Paragraph>
-                            Üye değil misiniz? <Anchor label="Hemen üye olun!" href="/signup" /> 
+                            Üye değil misiniz? <Anchor label="Hemen üye olun!" href="/signup" />
                         </Paragraph>
                     </Form>
                 </Box>
-                </Cont>
-                <MerakliFooter/>
-            </Grommet>
-        )
-    }
-}
+            </Cont>
+            <MerakliFooter />
+        </Grommet>
+    )
+};
 
-export default Login
+export default withRouter(Login);
