@@ -2,6 +2,7 @@
 import React from 'react';
 import app from '../firebaseFolder/firebase';
 
+//grommet işlevleri
 import {
     Box,
     Grommet,
@@ -26,6 +27,8 @@ import {
     ClosedCaption,
     Logout
 } from 'grommet-icons';
+
+//grommet control işlevleri
 import {
     Avatar,
     Header,

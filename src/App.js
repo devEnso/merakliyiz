@@ -9,13 +9,15 @@ import PrivateRoute from './firebaseFolder/PrivateRoute';
 // import Navbar from './components/Navbar';
 
 //sayfalar
-import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
+
 
 //diger sayfalar
+import UserSetting from './pages/user/UserSettings';
 import Sartlar from './pages/Sartlar';
+import Home from './pages/Home';
 import Gizlilik from './pages/Gizlilik';
 import Guvenlik from './pages/Guvenlik';
 import Hakkimizda from './pages/Hakkimizda';
@@ -28,12 +30,13 @@ function App() {
       <Router>
         {/* <Navbar/> */}
         <Switch>
+          <PrivateRoute exact path="/Dashboard" component={Dashboard} />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <PrivateRoute exact path="/Dashboard" component={Dashboard} />
         </Switch>
         <Switch>
+          <Route exact path="/settings" component={UserSetting} />
           <Route exact path="/sartlar" component={Sartlar} />
           <Route exact path="/gizlilik" component={Gizlilik} />
           <Route exact path="/guvenlik" component={Guvenlik} />
