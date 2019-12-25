@@ -2,6 +2,7 @@
 import React from 'react';
 import app from '../firebaseFolder/firebase';
 
+
 //grommet işlevleri
 import {
     Box,
@@ -89,7 +90,7 @@ export const MerakliyizDashboard = () => {
                                             items={[
                                                 {
                                                     id: 'home',
-                                                    href: '/dashboard',
+                                                    href: '#dash',
                                                     label: 'Dashboard',
                                                     icon: <Home />,
                                                 },
@@ -114,7 +115,7 @@ export const MerakliyizDashboard = () => {
                                                 //   },
                                                 {
                                                     id: 'messages',
-                                                    href: '/messages',
+                                                    href: '/sorular',
                                                     label: 'Gelen Cevaplar',
                                                     icon: <Inbox />,
                                                     widget: <Tag round='small' border='all' pad={{ horizontal: 'small' }} label='4' />,
@@ -129,7 +130,7 @@ export const MerakliyizDashboard = () => {
                                         />
                                     </Box>
                                 </Sidebar>
-                                <Box flex gap='large' fill='horizontal'>
+                                <Box id="dash" flex gap='large' fill='horizontal'>
                                     <Section name='Herkes Tarafından görülen Sorular'>
                                         <Grid columns='medium' gap='medium'>
                                             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (

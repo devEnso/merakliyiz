@@ -16,7 +16,7 @@ import Signup from './pages/Signup';
 
 //diger sayfalar
 import UserSetting from './pages/user/UserSettings';
-import Sartlar from './pages/Sartlar';
+import Messages from './pages/user/Messages';
 import Home from './pages/Home';
 import Gizlilik from './pages/Gizlilik';
 import Guvenlik from './pages/Guvenlik';
@@ -37,7 +37,7 @@ function App() {
         </Switch>
         <Switch>
           <Route exact path="/settings" component={UserSetting} />
-          <Route exact path="/sartlar" component={Sartlar} />
+          <Route exact path="/sorular" component={Messages} />
           <Route exact path="/gizlilik" component={Gizlilik} />
           <Route exact path="/guvenlik" component={Guvenlik} />
           <Route exact path="/hakkimizda" component={Hakkimizda} />
