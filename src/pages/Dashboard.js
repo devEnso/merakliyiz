@@ -193,7 +193,7 @@ export const MerakliyizDashboard = () => {
                                                             </Text>
                                                             <Text size='small'>
                                                                 {item.name} kullanıcısı için
-                                </Text>
+                                                            </Text>
                                                             <Anchor label='profilini gör...' />
                                                         </Box>
                                                     </Box>
@@ -202,6 +202,9 @@ export const MerakliyizDashboard = () => {
                                             )}
                                         </Grid>
                                     </Section>
+                                    <br/>
+                                    <br/>
+                                    <br/>
                                 </Box>
                             </Box>
                         </Box>
